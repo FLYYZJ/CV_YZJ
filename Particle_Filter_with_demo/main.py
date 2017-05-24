@@ -5,8 +5,8 @@
 # @Software: PyCharm Community Edition
 
 import numpy as np
-import Particle_Filter_with_demo.Create_Particle as CP
-import Particle_Filter_with_demo.Update_Particles as UP
+import Particle_Filter_with_demo.Partical_algorithms as PA
+
 import cv2
 
 def Get_Frame(video_file_path):
@@ -38,9 +38,11 @@ if __name__ == "__main__":
     print('**************帧宽和帧高********************')
     print(frame_width, frame_height)
     print('**************初始化粒子群参数*****************')
-    X = CP.create_particle(frame_width, frame_height, particle_num)
+    X = PA.create_particle(frame_width, frame_height, particle_num)
     print(X)
     print('**************开始迭代计算*****************')
     for k in range(len(frames)):
-        X = UP.update_particles(F_update, Xstd_pos, Xstd_vec, X)
-        print(X)
+        X = PA.update_particles(F_update, Xstd_pos, Xstd_vec, X)
+        # print(X)
+    print('**************开始进行极大似然估计运算*****************')
+        
