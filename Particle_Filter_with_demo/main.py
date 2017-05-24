@@ -26,23 +26,29 @@ def Get_Frame(video_file_path):
     return frames
 
 if __name__ == "__main__":
-    particle_num = 1000 # 1000个粒子
+    particle_num = 4000  # 1000个粒子
     Xstd_rgb = 50
     Xstd_pos = 25
     Xstd_vec = 5
-    Xrgb_trgt = np.array([255, 0, 0])
+    Xrgb_trgt = np.array([0, 0, 255])
     F_update = np.array([[1, 0, 1, 0], [0, 1, 0, 1], [0, 0, 1, 0], [0, 0, 0, 1]])
 
     frames = Get_Frame('../Person.wmv')
-    frame_width, frame_height = frames[0].shape[0:2]
-    print('**************帧宽和帧高********************')
+    frame_height, frame_width = frames[0].shape[0:2]
+    # print('**************帧宽和帧高********************')
     print(frame_width, frame_height)
-    print('**************初始化粒子群参数*****************')
+    # print('**************初始化粒子群参数*****************')
     X = PA.create_particle(frame_width, frame_height, particle_num)
-    print(X)
-    print('**************开始迭代计算*****************')
+    # print(X)
+    # print('**************开始迭代计算*****************')
     for k in range(len(frames)):
         X = PA.update_particles(F_update, Xstd_pos, Xstd_vec, X)
         # print(X)
-    print('**************开始进行极大似然估计运算*****************')
-        
+        # print('**************开始进行极大似然估计运算*****************')
+        L = PA.calc_log_likelihood(Xstd_rgb, Xrgb_trgt, X[0:2, :], frames[k])
+        # print(L)
+        # print('**************开始进行重采样*****************')
+        X = PA.resample_particles(X, L)
+        print(X)
+        # print('**************开始绘制检测结果*****************')
+        PA.show_particles(X, frames[k])
