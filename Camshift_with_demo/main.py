@@ -6,9 +6,15 @@
 # @Interpreter: Python 3.5.1
 
 import cv2
-import Cameshift_with_demo.Feature_caculation as FC
-import Cameshift_with_demo.Meanshift as meanshift
-import Cameshift_with_demo.GetRoi as GetRoi
+try:
+    import Cameshift_with_demo.Feature_caculation as FC
+    import Cameshift_with_demo.Meanshift as meanshift
+    import Cameshift_with_demo.GetRoi as GetRoi
+except:
+    import Feature_caculation as FC
+    import Meanshift as meanshift
+    import GetRoi as GetRoi
+
 
 
 # 获取背景图

@@ -7,7 +7,11 @@
 
 import cv2
 import numpy as np
-import Cameshift_with_demo.Feature_caculation as FC
+try:
+    import Cameshift_with_demo.Feature_caculation as FC
+except:
+    import Feature_caculation as FC
+
 
 DISTANCE_THRESHOLD = 1  # 距离差距，如果移动距离小于1，则表明到达目标中心
 ITERATION_TIMES = 30  # meanshift算法的迭代轮数，最多进行30轮迭代

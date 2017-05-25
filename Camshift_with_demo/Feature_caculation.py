@@ -7,7 +7,11 @@
 
 import cv2
 import numpy as np
-import Cameshift_with_demo.GetRoi as GetRoi
+try:
+    import Cameshift_with_demo.GetRoi as GetRoi
+except:
+    import GetRoi as GetRoi
+
 
 def HSV_frame_H_Cal(frame):
     """

@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 # @Time    : 2017/5/24 10:50
 # @Author  : Aries
 # @Site    : 
@@ -5,7 +6,10 @@
 # @Software: PyCharm Community Edition
 
 import numpy as np
-import Particle_Filter_with_demo.Partical_algorithms as PA
+try:
+    import Particle_Filter_with_demo.Partical_algorithms as PA
+except:
+    import Partical_algorithms as PA
 
 import cv2
 
@@ -17,9 +21,10 @@ def Get_Frame(video_file_path):
     """
     frames = []
     camera = cv2.VideoCapture(video_file_path)
+
     while True:
-        res, frame = camera.read()
-        if not res:
+        ret, frame = camera.read()
+        if not ret:
             break
         frames.append(frame)
     camera.release()
@@ -33,7 +38,8 @@ if __name__ == "__main__":
     Xrgb_trgt = np.array([0, 0, 255])
     F_update = np.array([[1, 0, 1, 0], [0, 1, 0, 1], [0, 0, 1, 0], [0, 0, 0, 1]])
 
-    frames = Get_Frame('../Person.wmv')
+    frames = Get_Frame('../Ball.avi')
+
     frame_height, frame_width = frames[0].shape[0:2]
     # print('**************帧宽和帧高********************')
     print(frame_width, frame_height)
