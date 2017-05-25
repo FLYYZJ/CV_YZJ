@@ -1,9 +1,10 @@
+# -*- coding:utf-8 -*-
 # @Time    : 2017/5/18 12:39
 # @Author  : Yao zijie
 # @Site    : 
 # @File    : main.py
 # @Software: PyCharm Community Edition
-# @Interpreter: Python 3.5.1
+# @Interpreter: Python 3.5.1/2.7.6
 
 import cv2
 try:
@@ -19,8 +20,9 @@ except:
 
 # 获取背景图
 # background = pickle.load(open('background.pkl', 'rb'))
-#
-frames_hsv, frames_gray, frames_color = GetRoi.GetFrame('..\Ball.avi')
+
+# ubuntu 系统下为 ../Ball.avi，在Windows系统下为..\Ball.avi，注意这个区别
+frames_hsv, frames_gray, frames_color = GetRoi.GetFrame('../Ball.avi')
 # 第1个目标的位置以及特征
 frame_hist_1, q_max_1, ix_1, iy_1, w_1, h_1 = FC.Hist_cal(frames_hsv[0], 197, 56, 17, 14)
 # 第2个目标的位置以及特征

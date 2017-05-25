@@ -1,9 +1,10 @@
+# -*- coding:utf-8 -*-
 # @Time    : 2017/5/18 12:37
 # @Author  : Yao zijie
 # @Site    : 
 # @File    : Feature_caculation.py
 # @Software: PyCharm Community Edition
-# @Interpreter: Python 3.5.1
+# @Interpreter: Python 3.5.1/2.7.6
 
 import cv2
 import numpy as np

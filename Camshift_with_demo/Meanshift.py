@@ -1,9 +1,10 @@
+# -*- coding:utf-8 -*-
 # @Time    : 2017/5/18 12:39
 # @Author  : Yao zijie
 # @Site    : 
 # @File    : Meanshift.py
 # @Software: PyCharm Community Edition
-# @Interpreter: Python 3.5.1
+# @Interpreter: Python 3.5.1/2.7.6
 
 import cv2
 import numpy as np

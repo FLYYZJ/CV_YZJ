@@ -1,9 +1,10 @@
+# -*- coding:utf-8 -*-
 # @Time       : 2017/5/18 11:25
 # @Author     : Yao zijie
 # @Site       :
 # @File       : GetRoi.py 读取视频帧，转图像为HSV图和灰度图，并提取初始目标的具体坐标和大小
 # @Software   : PyCharm Community Edition
-# @Interpreter: Python 3.5.1
+# @Interpreter: Python 3.5.1/2.7.6
 
 import cv2
 import imutils
